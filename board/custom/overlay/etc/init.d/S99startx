@@ -1,0 +1,22 @@
+#!/bin/sh
+# Start X11 graphical desktop automatically on boot
+case "$1" in
+  start)
+    echo "Starting X11 Desktop..."
+    mkdir -p /var/log
+    # Create symlink for doom WAD case compatibility
+    if [ -f /usr/share/games/doom/doom1.wad ] && [ ! -f /usr/share/games/doom/DOOM1.WAD ]; then
+        ln -sf /usr/share/games/doom/doom1.wad /usr/share/games/doom/DOOM1.WAD
+    fi
+    # Start X in background on tty1 as root
+    su - root -c "startx -- :0 vt1" > /var/log/xorg-boot.log 2>&1 &
+    ;;
+  stop)
+    killall fluxbox Xorg
+    ;;
+  *)
+    echo "Usage: $0 {start|stop}"
+    exit 1
+    ;;
+esac
+exit 0

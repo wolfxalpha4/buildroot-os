@@ -1,0 +1,13 @@
+[begin] (CustomOS)
+    [submenu] (Games) {}
+        [exec] (Chocolate Doom) {chocolate-doom -iwad /usr/share/games/doom/doom1.wad}
+    [end]
+    [submenu] (Apps) {}
+        [exec] (Terminal) {xterm}
+        [exec] (Top Processes) {xterm -e top}
+    [end]
+    [separator]
+    [restart] (Restart Desktop)
+    [exec] (Power Off System) {poweroff}
+    [exec] (Reboot System) {reboot}
+[end]

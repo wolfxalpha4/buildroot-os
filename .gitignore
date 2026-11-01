@@ -1,0 +1,11 @@
+# Build artifacts & downloaded OS images
+bzImage
+bzImage*
+rootfs.*
+*.zip
+*.tar.*
+output/
+dl/
+buildroot-src/
+.config
+.config.old
